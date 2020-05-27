@@ -100,7 +100,7 @@ def etc_fail_unpack(line):
     # trans_amount-交易金额；fact_amount-实际扣款；event_spec-特情编号
     pattern = '(?P<time_stamp>[\d\:\.]+)\s(?:\[(?P<case_type>[^\[\]]+)\])\s(?:\[(?P<number>[^\[\]]+)\])\s' \
               '(?:\[(?P<antenna_no>[^\[\]]+)\])(?:\[(?P<sw_version>[^\[\]]+)\])\*(?P<trade_type>[\S]+)\s' \
-              'MAC:(?P<mac_address>[^s]+)\s车牌号:(?P<plate_spec>[^s]+)\s车型:(?P<vech_type>[^s]+)\s' \
+              'MAC:(?P<mac_address>[^s]+)\s车牌号:(?P<plate_spec>[^\t]+)\s车型:(?P<vech_type>[^s]+)\s' \
               '(?P<label_suc>[^s]+)\s(?P<obu_suc>[^s]+)\s应收金额:(?P<able_amount>[\d]+)\s' \
               '优惠金额:(?P<disc_amount>[\d\-]+)\s交易金额:(?P<trans_amount>[\d]+)\s实际扣款:(?P<fact_amount>[\d]+)\s' \
               '交易特情:(?P<event_spec>[\d|]+)\s*'
@@ -110,7 +110,7 @@ def etc_fail_unpack(line):
     if matcher is None:
         pattern = '(?P<time_stamp>[\d\:\.]+)\s(?:\[(?P<case_type>[^\[\]]+)\])\s(?:\[(?P<number>[^\[\]]+)\])\s' \
                   '(?:\[(?P<antenna_no>[^\[\]]+)\])(?:\[(?P<sw_version>[^\[\]]+)\])\*(?P<trade_type>[\S]+)\s' \
-                  'MAC:(?P<mac_address>[^s]+)\s车牌号:(?P<plate_spec>[^s]*)\s车型:(?P<vech_type>[^s]+)\s' \
+                  'MAC:(?P<mac_address>[^s]+)\s车牌号:(?P<plate_spec>[^\t]*)\s车型:(?P<vech_type>[^s]+)\s' \
                   '(?P<label_suc>[^s]+)(?P<obu_suc>[^s]*)(?P<able_amount>[\d]*)' \
                   '(?P<disc_amount>[\d]*)(?P<trans_amount>[\d]*)(?P<fact_amount>[\d]*)' \
                   '\s交易特情:(?P<event_spec>[\d|]+)\s*'
@@ -120,7 +120,7 @@ def etc_fail_unpack(line):
     if matcher is None:
         pattern = '(?P<time_stamp>[\d\:\.]+)\s(?:\[(?P<case_type>[^\[\]]+)\])\s(?:\[(?P<number>[^\[\]]+)\])\s' \
                   '(?:\[(?P<antenna_no>[^\[\]]+)\])(?:\[(?P<ip_address>[^\[\]]+)\])\*(?P<trade_type>[\S]+)\s' \
-                  'MAC:(?P<mac_address>[^s]+)\s车牌号:(?P<plate_spec>[^s]*)\s车型:(?P<vech_type>[\d]+)\s' \
+                  'MAC:(?P<mac_address>[^s]+)\s车牌号:(?P<plate_spec>[^\t]*)\s车型:(?P<vech_type>[\d]+)\s' \
                   '(?P<label_suc>[^s]+)\s(?P<obu_suc>[^s]+)\s应收金额:(?P<able_amount>[\d]*)\s' \
                   '优惠金额:(?P<disc_amount>[\d]*)\s交易金额:(?P<trans_amount>[\d]*)\s实际扣款:(?P<fact_amount>[\d]*)\s' \
                   '(?P<event_spec>[\d|]*)\s*'
@@ -130,7 +130,7 @@ def etc_fail_unpack(line):
     if matcher is None:
         pattern = '(?P<time_stamp>[\d\:\.]+)\s(?:\[(?P<case_type>[^\[\]]+)\])\s(?:\[(?P<number>[^\[\]]+)\])\s' \
                   '(?:\[(?P<antenna_no>[^\[\]]+)\])(?:\[(?P<ip_address>[^\[\]]+)\])\*(?P<trade_type>[\S]+)\s' \
-                  'MAC:(?P<mac_address>[^s]+)\s车牌号:(?P<plate_spec>[^s]*)\s车型:(?P<vech_type>[\d]+)\s' \
+                  'MAC:(?P<mac_address>[^s]+)\s车牌号:(?P<plate_spec>[^\t]*)\s车型:(?P<vech_type>[\d]+)\s' \
                   '(?P<label_suc>[^s]{,4})\s(?P<able_amount>[^\[]*)' \
                   '(?P<disc_amount>[^\[]*)(?P<trans_amount>[^\[]*)(?P<fact_amount>[^\[]*)' \
                   '(?P<event_spec>[^\[]*)*'
@@ -221,7 +221,7 @@ def cpc_fail_unpack(line):
     global error_count
     pattern = '(?P<time_stamp>[\d\:\.]+)\s(?:\[(?P<case_type>[^\[\]]+)\])\s(?:\[(?P<number>[^\[\]]+)\])\s' \
               '(?:\[(?P<antenna_no>[^\[\]]+)\])(?:\[(?P<sw_version>[^\[\]]+)\])\*(?P<trade_type>[\S]+)\s' \
-              'MAC:(?P<mac_address>[^s]+)\s车牌号:(?P<plate_spec>[^s]+)\s车型:(?P<vech_type>[^s]+)\s' \
+              'MAC:(?P<mac_address>[^s]+)\s车牌号:(?P<plate_spec>[^\t]+)\s车型:(?P<vech_type>[^s]+)\s' \
               '(?P<trans_suc>[^s]+)\s应收金额:(?P<able_amount>[\d]+)\s' \
               '优惠金额:(?P<disc_amount>[\d\-]+)\s交易金额:(?P<trans_amount>[\d]+)\s实际扣款:(?P<fact_amount>[\d]+)\s' \
               '交易特情:(?P<event_spec>[\d|]+)\s*'
@@ -231,7 +231,7 @@ def cpc_fail_unpack(line):
     if matcher is None:
         pattern = '(?P<time_stamp>[\d\:\.]+)\s(?:\[(?P<case_type>[^\[\]]+)\])\s(?:\[(?P<number>[^\[\]]+)\])\s' \
                   '(?:\[(?P<antenna_no>[^\[\]]+)\])(?:\[(?P<sw_version>[^\[\]]+)\])\*(?P<trade_type>[\S]+)\s' \
-                  'MAC:(?P<mac_address>[^s]+)\s车牌号:(?P<plate_spec>[^s]*)\s车型:(?P<vech_type>[^s]+)\s' \
+                  'MAC:(?P<mac_address>[^s]+)\s车牌号:(?P<plate_spec>[^\t]*)\s车型:(?P<vech_type>[^s]+)\s' \
                   '(?P<trans_suc>[^s]+)\s(?P<able_amount>[\d]*)' \
                   '(?P<disc_amount>[\d]*)(?P<trans_amount>[\d]*)(?P<fact_amount>[\d]*)' \
                   '交易特情:(?P<event_spec>[\d|]+)\s*'
@@ -241,7 +241,7 @@ def cpc_fail_unpack(line):
     if matcher is None:
         pattern = '(?P<time_stamp>[\d\:\.]+)\s(?:\[(?P<case_type>[^\[\]]+)\])\s(?:\[(?P<number>[^\[\]]+)\])\s' \
                   '(?:\[(?P<antenna_no>[^\[\]]+)\])(?:\[(?P<ip_address>[^\[\]]+)\])\*(?P<trade_type>[\S]+)\s' \
-                  'MAC:(?P<mac_address>[^s]+)\s车牌号:(?P<plate_spec>[^s]*)\s车型:(?P<vech_type>[\d]+)\s' \
+                  'MAC:(?P<mac_address>[^s]+)\s车牌号:(?P<plate_spec>[^\t]*)\s车型:(?P<vech_type>[\d]+)\s' \
                   '(?P<trans_suc>[^s]{,4})\s(?P<able_amount>[^\[]*)' \
                   '(?P<disc_amount>[^\[]*)(?P<trans_amount>[^\[]*)(?P<fact_amount>[^\[]*)' \
                   '(?P<event_spec>[^\[]*)*'
