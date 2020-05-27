@@ -491,7 +491,7 @@ start_time = datetime.datetime.now()
 
 # 编历文件夹下全部日志
 for i in range(len(file)):
-    print('\r[INFO]载入日志文件:' + file[i], end='')
+    print('[INFO]载入日志文件:' + file[i])
     read_lines(file[i])
 print('\n[INFO]日志已全部加载完毕！')
 
